@@ -48,13 +48,13 @@ if (shouldMove && transform.position.z < moveDistance) {
     }
 
 
-if (shouldMove && transform.position.z >= moveDistance && pauseTimer <= 10f) {
+if (shouldMove && transform.position.z >= moveDistance && pauseTimer <= 30f) {
 
      pauseTimer += Time.deltaTime;
 }
 
 
-if (pauseTimer >= 10f && shouldMove && transform.position.z >= moveDistance) { 
+if (pauseTimer >= 30f && shouldMove && transform.position.z >= moveDistance) { 
 
     shouldMove = false; 
     moveDistance = transform.position.z + 20f; // Guardar la posición z actual más 20 unidades 

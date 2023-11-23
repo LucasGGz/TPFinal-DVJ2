@@ -7,26 +7,34 @@ public class Timer : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI timer;
 
-    public float reimainingTime; //tiempo transcurrido
-    void Start()
-    {
+    public float remainingTime; // tiempo transcurrido
 
-    }
+    private bool isInitialized = false;
+    private float initializationTime = 7f;
 
-    // Update is called once per frame
     void Update()
     {
-        if (reimainingTime > 0)
+        if (!isInitialized)
         {
-            reimainingTime -= Time.deltaTime;
+            initializationTime -= Time.deltaTime;
+            if (initializationTime <= 0)
+            {
+                isInitialized = true;
+                remainingTime = 30f;
+            }
         }
-        else if (reimainingTime < 0)
+        
+        if (isInitialized && remainingTime > 0)
         {
-            reimainingTime = 0;
+            remainingTime -= Time.deltaTime;
+        }
+        else if (remainingTime < 0)
+        {
+            remainingTime = 0;
         }
 
-        int minutes = Mathf.FloorToInt(reimainingTime / 60);
-        int seconds = Mathf.FloorToInt(reimainingTime % 60);
+        int minutes = Mathf.FloorToInt(remainingTime / 60);
+        int seconds = Mathf.FloorToInt(remainingTime % 60);
         timer.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }

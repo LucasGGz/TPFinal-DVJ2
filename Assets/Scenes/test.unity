@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 200269726}
-  reimainingTime: 10
+  remainingTime: 0
 --- !u!114 &56581302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,7 +629,7 @@ Transform:
   m_GameObject: {fileID: 207984199}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15035819, y: 0.68037087, z: -0.14565635, w: 0.70233345}
-  m_LocalPosition: {x: -13.75, y: 7.91, z: -2.17}
+  m_LocalPosition: {x: -14.88, y: 5.37, z: -2.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
