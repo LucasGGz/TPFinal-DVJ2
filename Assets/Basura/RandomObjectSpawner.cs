@@ -3,29 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomObjectSpawner : MonoBehaviour
-{ 
-    public GameObject[] myObjects; 
-    private float spawnDuration = 30f;
+{
+    public GameObject[] myObjects;
+    private float spawnDuration = 29f;
+    public bool shouldSpawn = true; // Variable de control
 
-    void Start() {
+    void Start()
+    {
         StartCoroutine(StartSpawnRoutineCoroutine());
     }
 
-    IEnumerator StartSpawnRoutineCoroutine() { 
-        yield return new WaitForSeconds(6f); 
-        StartCoroutine(SpawnObjectsCoroutine()); // Renombrado a SpawnObjectsCoroutine
+    IEnumerator StartSpawnRoutineCoroutine()
+    {
+        yield return new WaitForSeconds(7f);
+        StartCoroutine(SpawnObjectsCoroutine());
         yield return new WaitForSeconds(spawnDuration);
-        StopCoroutine(SpawnObjectsCoroutine()); // Renombrado a SpawnObjectsCoroutine
+
+        // Cambia la variable de control para detener la corrutina
+        shouldSpawn = false;
     }
 
-    IEnumerator SpawnObjectsCoroutine() { // Renombrado a SpawnObjectsCoroutine
-        while (true) { 
+    IEnumerator SpawnObjectsCoroutine()
+    {
+        while (shouldSpawn) // Verifica la variable de control
+        {
             int randomIndex = Random.Range(0, myObjects.Length);
             float randomZ = Random.Range(2f, -7f);
             Vector3 randomSpawnPosition = new Vector3(transform.position.x, transform.position.y, randomZ);
             Instantiate(myObjects[randomIndex], randomSpawnPosition, Quaternion.identity);
-            yield return new WaitForSeconds(3f); 
-        } 
-    } 
+            yield return new WaitForSeconds(3f);
+        }
+    }
 }
 

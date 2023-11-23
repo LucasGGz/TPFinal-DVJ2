@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 
     public float remainingTime; // tiempo transcurrido
 
-    private bool isInitialized = false;
+    public bool isInitialized = false;
     private float initializationTime = 7f;
 
     void Update()

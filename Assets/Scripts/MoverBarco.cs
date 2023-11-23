@@ -26,12 +26,13 @@ using UnityEngine;
 public class MovementController : MonoBehaviour { 
 
     public float speed = 5f; 
-    private bool shouldMove = false; 
+    public bool shouldMove = false; 
     private float moveDistance = 0f; // Variable para guardar la distancia recorrida 
     private float pauseTimer = 0f; // Variable para contar los segundos de pausa
+    public bool isGone = false;
 
 
-private void Update() { 
+    private void Update() { 
 
     if (Time.time >= 4f && !shouldMove) { 
 
@@ -58,6 +59,7 @@ if (pauseTimer >= 30f && shouldMove && transform.position.z >= moveDistance) {
 
     shouldMove = false; 
     moveDistance = transform.position.z + 20f; // Guardar la posición z actual más 20 unidades 
+            isGone=true;
 }
 
 
