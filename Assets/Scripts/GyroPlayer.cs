@@ -81,13 +81,14 @@ public class GyroPlayer : MonoBehaviour
                 AudioPerm.Pausar();
                 SoundManager.SeleccionAudio(3, 1.0f);
                 SceneManager.LoadScene("ganaste");
-            }
+                }
             if (valorPoints.puntos != 10)
             {
                 AudioPerm.Pausar();
                 Debug.Log("Perdiste");
                 SoundManager.SeleccionAudio(2, 1.0f);
                 particulas.SetActive(false);
+                SceneManager.LoadScene("perdiste");
             }
 
         }
