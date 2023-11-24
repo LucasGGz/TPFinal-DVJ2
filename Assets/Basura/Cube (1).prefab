@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5457751169847185560}
   - component: {fileID: 1144424179318256745}
   - component: {fileID: 7865296246551124591}
+  - component: {fileID: 3876143585387324504}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -100,7 +101,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -133,3 +134,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3876143585387324504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067992544619038443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2be3abcb7f8f44caa6f60114a22df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  height: 9
+  forwardSpeed: -3.5
+  upwardSpeed: 2
+  valorPoints: {fileID: 7438167921240821884, guid: d2c119cdc6ad33b4db43f5321b651063, type: 3}
+  puntosQueda: 1

@@ -30,7 +30,17 @@ public class RandomObjectSpawner : MonoBehaviour
             int randomIndex = Random.Range(0, myObjects.Length);
             float randomZ = Random.Range(2f, -7f);
             Vector3 randomSpawnPosition = new Vector3(transform.position.x, transform.position.y, randomZ);
-            Instantiate(myObjects[randomIndex], randomSpawnPosition, Quaternion.identity);
+
+            // Instancia el objeto
+            GameObject spawnedObject = Instantiate(myObjects[randomIndex], randomSpawnPosition, Quaternion.identity);
+
+            // Obtén el componente de la trayectoria parabólica y configúralo
+            MovimientoCubo parabolicMovement = spawnedObject.GetComponent<MovimientoCubo>();
+            if (parabolicMovement != null)
+            {
+                parabolicMovement.SetInitialPosition(randomSpawnPosition);
+            }
+
             yield return new WaitForSeconds(3f);
         }
     }
