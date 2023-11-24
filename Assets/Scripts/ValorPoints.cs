@@ -7,6 +7,8 @@ public class ValorPoints : MonoBehaviour
 {
     public float puntos;
     public TextMeshProUGUI textoPuntos;
+    public float vidas;
+    public TextMeshProUGUI vidasRest;
     void Start()
     {
         
@@ -16,9 +18,10 @@ public class ValorPoints : MonoBehaviour
     void Update()
     {
         textoPuntos.text = "" + puntos.ToString();
-       /* if (puntos == 4)
-        {
-            Debug.Log("ganaste");
-        }*/
+        vidasRest.text = "" + vidas.ToString();
+        /* if (puntos == 4)
+         {
+             Debug.Log("ganaste");
+         }*/
     }
 }

@@ -42,7 +42,8 @@ public class GyroPlayer : MonoBehaviour
         {
                 camara2.SetActive(true);
                 capsule.velocity = new Vector3(speedX, 0f, speedZ);
-            
+                capsule.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+
         }
       
     }

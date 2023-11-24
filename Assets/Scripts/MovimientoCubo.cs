@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovimientoCubo : MonoBehaviour
@@ -13,6 +14,7 @@ public class MovimientoCubo : MonoBehaviour
     public float upwardSpeed = 2f;
     public ValorPoints valorPoints;
     public float puntosQueda;
+    public float vidasPer;
     void Start()
     {
         startTime = Time.time;
@@ -29,8 +31,16 @@ public class MovimientoCubo : MonoBehaviour
         float xOffset = forwardSpeed * t;  // Ecuación de movimiento horizontal
         transform.position = new Vector3(initialPosition.x + xOffset, initialPosition.y + yOffset, initialPosition.z);
 
-        // Destruye el objeto después de cierto tiempo (puedes ajustar esto según tus necesidades)
-       
+        if (transform.position.y < -4.5f)
+        {
+            Destroy(gameObject);
+            valorPoints.vidas -= vidasPer;
+            if (valorPoints.vidas <= 0)
+            {
+                valorPoints.vidas = 0;
+                Debug.Log("perdiste");
+            }
+        }
     }
 
     // Configura la posición inicial de la trayectoria parabólica
@@ -48,13 +58,9 @@ public class MovimientoCubo : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (other.gameObject.CompareTag("Plataforma"))
-        {
-
-            Destroy(gameObject);
-        }
-
     }
+
+    
 }
 
 

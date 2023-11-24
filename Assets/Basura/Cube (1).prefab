@@ -151,3 +151,4 @@ MonoBehaviour:
   upwardSpeed: 2
   valorPoints: {fileID: 7438167921240821884, guid: d2c119cdc6ad33b4db43f5321b651063, type: 3}
   puntosQueda: 1
+  vidasPer: 1
