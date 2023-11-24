@@ -9,4 +9,10 @@ public class Escena : MonoBehaviour
    {
     SceneManager.LoadScene(sceneName); 
    }
+
+    public void music()
+    {
+
+        AudioPerm.Suena();
+    }
 }   
