@@ -4,8 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class MovimientoCubo : MonoBehaviour
-
-
 {
     private Vector3 initialPosition;
     private float startTime;
@@ -15,8 +13,10 @@ public class MovimientoCubo : MonoBehaviour
     public ValorPoints valorPoints;
     public float puntosQueda;
     public float vidasPer;
+    private SoundManager SoundManager;
     void Start()
     {
+        SoundManager = FindObjectOfType<SoundManager>();
         startTime = Time.time;
         valorPoints = FindObjectOfType<ValorPoints>();
     }
@@ -34,11 +34,14 @@ public class MovimientoCubo : MonoBehaviour
         if (transform.position.y < -4.5f)
         {
             Destroy(gameObject);
+            SoundManager.SeleccionAudio(1, 2f);
             valorPoints.vidas -= vidasPer;
             if (valorPoints.vidas <= 0)
             {
                 valorPoints.vidas = 0;
                 Debug.Log("perdiste");
+                AudioPerm.Pausar();
+                SoundManager.SeleccionAudio(2, 1.0f);
             }
         }
     }
@@ -56,6 +59,7 @@ public class MovimientoCubo : MonoBehaviour
             Debug.Log("CHOCA");
             valorPoints.puntos += puntosQueda;
             Destroy(gameObject);
+            SoundManager.SeleccionAudio(0, 5f);
         }
 
     }

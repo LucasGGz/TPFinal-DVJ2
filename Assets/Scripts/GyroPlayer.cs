@@ -14,6 +14,7 @@ public class GyroPlayer : MonoBehaviour
     public float puntosResta;
     public ValorPoints valorPoints;
     public float velocidadResta = 1f;
+    private SoundManager SoundManager;
     void Start()
     {
         particulas.SetActive(false); 
@@ -22,6 +23,7 @@ public class GyroPlayer : MonoBehaviour
         steerGyro.enabled = true;
         gene = GameObject.FindGameObjectWithTag("generador").GetComponent<RandomObjectSpawner>();
         valorPoints = FindObjectOfType<ValorPoints>();
+        SoundManager = FindObjectOfType<SoundManager>();
     }
 
 
@@ -75,10 +77,14 @@ public class GyroPlayer : MonoBehaviour
             {
                 Debug.Log("Ganaste");
                 particulas.SetActive(true);
+                AudioPerm.Pausar();
+                SoundManager.SeleccionAudio(3, 1.0f);
             }
             if (valorPoints.puntos != 10)
             {
+                AudioPerm.Pausar();
                 Debug.Log("Perdiste");
+                SoundManager.SeleccionAudio(2, 1.0f);
                 particulas.SetActive(false);
             }
 
