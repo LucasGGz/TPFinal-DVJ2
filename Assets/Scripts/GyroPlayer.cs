@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GyroPlayer : MonoBehaviour
 {
@@ -79,6 +80,7 @@ public class GyroPlayer : MonoBehaviour
                 particulas.SetActive(true);
                 AudioPerm.Pausar();
                 SoundManager.SeleccionAudio(3, 1.0f);
+                SceneManager.LoadScene("ganaste");
             }
             if (valorPoints.puntos != 10)
             {
