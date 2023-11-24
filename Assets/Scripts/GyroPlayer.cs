@@ -42,7 +42,8 @@ public class GyroPlayer : MonoBehaviour
         {
                 camara2.SetActive(true);
                 capsule.velocity = new Vector3(speedX, 0f, speedZ);
-            
+                capsule.transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+
         }
       
     }
@@ -53,19 +54,29 @@ public class GyroPlayer : MonoBehaviour
             Debug.Log("CHOCA");
             valorPoints.puntos -= puntosResta * velocidadResta;
 
-            if (valorPoints.puntos < 10)
-            {
-                Debug.Log("Perdiste");
-            }
-            else
-            {
-                Debug.Log("Ganaste");
-            }
 
             if (valorPoints.puntos < 0)
             {
                 valorPoints.puntos = 0;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("ObjetoDescuento"))
+        {
+
+
+            if (valorPoints.puntos == 10)
+            {
+                Debug.Log("Ganaste");
+            }
+            if (valorPoints.puntos != 10)
+            {
+                Debug.Log("Perdiste");
+            }
+
         }
     }
 }

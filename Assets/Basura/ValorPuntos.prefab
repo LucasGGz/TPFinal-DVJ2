@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puntos: 0
-  textoPuntos: {fileID: 0}
+  textoPuntos: {fileID: 7289191610083123834, guid: ef9b61edb5016bb429bd005e0331094c, type: 3}
+  vidas: 3
+  textoVidas: {fileID: 7188796384148694249, guid: 6a53362354aaf9a41a78a22ee0948e2d, type: 3}
