@@ -16,9 +16,9 @@ public class ValorPoints : MonoBehaviour
     void Update()
     {
         textoPuntos.text = "" + puntos.ToString();
-        if (puntos == 4)
+       /* if (puntos == 4)
         {
             Debug.Log("ganaste");
-        }
+        }*/
     }
 }
