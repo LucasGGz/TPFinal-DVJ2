@@ -53,19 +53,29 @@ public class GyroPlayer : MonoBehaviour
             Debug.Log("CHOCA");
             valorPoints.puntos -= puntosResta * velocidadResta;
 
-            if (valorPoints.puntos < 10)
-            {
-                Debug.Log("Perdiste");
-            }
-            else
-            {
-                Debug.Log("Ganaste");
-            }
 
             if (valorPoints.puntos < 0)
             {
                 valorPoints.puntos = 0;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("ObjetoDescuento"))
+        {
+
+
+            if (valorPoints.puntos == 10)
+            {
+                Debug.Log("Ganaste");
+            }
+            if (valorPoints.puntos != 10)
+            {
+                Debug.Log("Perdiste");
+            }
+
         }
     }
 }
