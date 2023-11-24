@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GyroPlayer : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject particulas;
     Gyroscope steerGyro;
     public Rigidbody capsule;
     public float speed;
@@ -14,6 +16,7 @@ public class GyroPlayer : MonoBehaviour
     public float velocidadResta = 1f;
     void Start()
     {
+        particulas.SetActive(false); 
         // Habilita el giroscopio
         steerGyro = Input.gyro;
         steerGyro.enabled = true;
@@ -24,11 +27,11 @@ public class GyroPlayer : MonoBehaviour
 
     void Update()
     {
-        // Transforma la rotación basada en el giroscopio
+        // Transforma la rotaciï¿½n basada en el giroscopio
         //Quaternion gyroRotation = steerGyro.attitude;
        // gyroRotation = Quaternion.Euler(90f, 0f, 0f) * gyroRotation;
 
-        // Calcula la velocidad basada en la inclinación del giroscopio en el eje X y Z
+        // Calcula la velocidad basada en la inclinaciï¿½n del giroscopio en el eje X y Z
         float speedX = steerGyro.rotationRate.x * speed;
         float speedZ = steerGyro.rotationRate.z * speed;
 
@@ -71,10 +74,12 @@ public class GyroPlayer : MonoBehaviour
             if (valorPoints.puntos == 10)
             {
                 Debug.Log("Ganaste");
+                particulas.SetActive(true);
             }
             if (valorPoints.puntos != 10)
             {
                 Debug.Log("Perdiste");
+                particulas.SetActive(false);
             }
 
         }
