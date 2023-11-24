@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovimientoCubo : MonoBehaviour
 {
@@ -26,9 +27,9 @@ public class MovimientoCubo : MonoBehaviour
         // Calcula el tiempo normalizado entre 0 y 1
         float t = (Time.time - startTime);
 
-        // Calcula la posición según la fórmula de la parábola
-        float yOffset = upwardSpeed * t - 0.5f * 9.8f * t * t; // Ecuación de movimiento vertical
-        float xOffset = forwardSpeed * t;  // Ecuación de movimiento horizontal
+        // Calcula la posiciï¿½n segï¿½n la fï¿½rmula de la parï¿½bola
+        float yOffset = upwardSpeed * t - 0.5f * 9.8f * t * t; // Ecuaciï¿½n de movimiento vertical
+        float xOffset = forwardSpeed * t;  // Ecuaciï¿½n de movimiento horizontal
         transform.position = new Vector3(initialPosition.x + xOffset, initialPosition.y + yOffset, initialPosition.z);
 
         if (transform.position.y < -4.5f)
@@ -42,11 +43,12 @@ public class MovimientoCubo : MonoBehaviour
                 Debug.Log("perdiste");
                 AudioPerm.Pausar();
                 SoundManager.SeleccionAudio(2, 1.0f);
+                SceneManager.LoadScene("perdiste");
             }
         }
     }
 
-    // Configura la posición inicial de la trayectoria parabólica
+    // Configura la posiciï¿½n inicial de la trayectoria parabï¿½lica
     public void SetInitialPosition(Vector3 position)
     {
         initialPosition = position;
