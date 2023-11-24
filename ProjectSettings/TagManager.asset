@@ -7,6 +7,8 @@ TagManager:
   - Timer
   - Barco
   - generador
+  - Plataforma
+  - ObjetoDescuento
   layers:
   - Default
   - TransparentFX

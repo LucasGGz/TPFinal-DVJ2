@@ -9,15 +9,18 @@ public class GyroPlayer : MonoBehaviour
     public float speed;
     public GameObject camara2;
     RandomObjectSpawner gene;
-
+    public float puntosResta;
+    public ValorPoints valorPoints;
+    public float velocidadResta = 1f;
     void Start()
     {
         // Habilita el giroscopio
         steerGyro = Input.gyro;
         steerGyro.enabled = true;
         gene = GameObject.FindGameObjectWithTag("generador").GetComponent<RandomObjectSpawner>();
-       
+        valorPoints = FindObjectOfType<ValorPoints>();
     }
+
 
     void Update()
     {
@@ -42,5 +45,27 @@ public class GyroPlayer : MonoBehaviour
             
         }
       
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("ObjetoDescuento"))
+        {
+            Debug.Log("CHOCA");
+            valorPoints.puntos -= puntosResta * velocidadResta;
+
+            if (valorPoints.puntos < 10)
+            {
+                Debug.Log("Perdiste");
+            }
+            else
+            {
+                Debug.Log("Ganaste");
+            }
+
+            if (valorPoints.puntos < 0)
+            {
+                valorPoints.puntos = 0;
+            }
+        }
     }
 }
