@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomObjectSpawner : MonoBehaviour
 {
     public GameObject[] myObjects;
-    private float spawnDuration = 29f;
+    private float spawnDuration = 28f;
     public bool shouldSpawn = true; // Variable de control
 
     void Start()
@@ -41,7 +41,7 @@ public class RandomObjectSpawner : MonoBehaviour
                 parabolicMovement.SetInitialPosition(randomSpawnPosition);
             }
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
         }
     }
 }

@@ -74,7 +74,7 @@ public class GyroPlayer : MonoBehaviour
         {
 
 
-            if (valorPoints.puntos == 10)
+            if (valorPoints.puntos == 14)
             {
                 Debug.Log("Ganaste");
                 particulas.SetActive(true);
@@ -82,7 +82,7 @@ public class GyroPlayer : MonoBehaviour
                 SoundManager.SeleccionAudio(3, 1.0f);
                 SceneManager.LoadScene("ganaste");
                 }
-            if (valorPoints.puntos != 10)
+            if (valorPoints.puntos != 14)
             {
                 AudioPerm.Pausar();
                 Debug.Log("Perdiste");
